@@ -21,6 +21,7 @@ namespace FigureSpawner
             _gameDatas = gameDatas;
             _figures = figures;
             _mainView = mainView;
+            _mainView.DeleteFigureButton.onClick.AddListener(DeleteSelectedFigure);
 
             _camera = Camera.main;
         }
@@ -67,15 +68,15 @@ namespace FigureSpawner
                     _selectedFigure = null;
                 }
             }
+        }
 
-            if (Input.GetKey(KeyCode.D))
+        private void DeleteSelectedFigure()
+        {
+            if (_selectedFigure != null)
             {
-                if (_selectedFigure != null)
-                {
-                    _mainView.HideAllPanels();
-                    Destroy(_selectedFigure.gameObject);
-                    _selectedFigure = null;
-                }
+                _mainView.HideAllPanels();
+                Destroy(_selectedFigure.gameObject);
+                _selectedFigure = null;
             }
         }
 
