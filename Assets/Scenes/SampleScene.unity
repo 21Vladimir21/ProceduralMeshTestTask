@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 80845177}
   - component: {fileID: 80845178}
   m_Layer: 5
-  m_Name: YSizeSlider
+  m_Name: RadiusSizeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 294319643}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedb68ee03cf4ffa82a54b607622f06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   button: {fileID: 213314869}
 --- !u!114 &213314869
 MonoBehaviour:
@@ -1808,7 +1808,7 @@ RectTransform:
   m_Father: {fileID: 1762444567}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2040,7 +2040,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 50
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2222,6 +2222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 720313732}
+  - component: {fileID: 720313733}
   m_Layer: 5
   m_Name: CapsulePanel
   m_TagString: Untagged
@@ -2249,6 +2250,24 @@ RectTransform:
   m_AnchoredPosition: {x: -250, y: 150}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &720313733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720313731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651f61fc76074d96a02a5dc5c90c3cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  smoothnessSlider: {fileID: 1568954690}
+  radiusSlider: {fileID: 80845178}
+  heightSlider: {fileID: 1604601037}
 --- !u!1 &761239923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3055,7 +3074,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1381069216}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -3240,8 +3259,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 907044864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.02, y: 0}
+  m_AnchorMax: {x: 0.02, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3803,7 +3822,7 @@ RectTransform:
   m_Father: {fileID: 2105539691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.02, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4203,7 +4222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedb68ee03cf4ffa82a54b607622f06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   button: {fileID: 1212479188}
 --- !u!114 &1212479188
 MonoBehaviour:
@@ -4373,7 +4392,7 @@ GameObject:
   - component: {fileID: 1229918702}
   - component: {fileID: 1229918703}
   m_Layer: 5
-  m_Name: XSizeSlider
+  m_Name: HeightSizeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4446,7 +4465,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 843221871}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -4917,13 +4936,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1349764759}
+  - component: {fileID: 1349764760}
   m_Layer: 5
   m_Name: SpherePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1349764759
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4944,6 +4964,23 @@ RectTransform:
   m_AnchoredPosition: {x: -250, y: 150}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1349764760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349764758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4fc281cf8e4644ba02c2f4eaaba458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  smoothnessSlider: {fileID: 682823508}
+  radiusSlider: {fileID: 870417816}
 --- !u!1 &1362842240
 GameObject:
   m_ObjectHideFlags: 0
@@ -4955,7 +4992,7 @@ GameObject:
   - component: {fileID: 1362842241}
   - component: {fileID: 1362842242}
   m_Layer: 5
-  m_Name: YSizeSlider
+  m_Name: RadiusSizeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5028,7 +5065,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1330237902}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -5142,7 +5179,7 @@ RectTransform:
   m_Father: {fileID: 32084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5396,7 +5433,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectFigurePanel: {fileID: 2002492190}
-  <ChangeCubeFormPanel>k__BackingField: {fileID: 576357130}
+  <ChangeCubePanel>k__BackingField: {fileID: 576357130}
+  <ChangeSpherePanel>k__BackingField: {fileID: 1349764760}
+  <ChangeCapsulePanel>k__BackingField: {fileID: 720313733}
+  <ChangePrismaPanel>k__BackingField: {fileID: 1442682484}
 --- !u!1 &1440616391
 GameObject:
   m_ObjectHideFlags: 0
@@ -5540,6 +5580,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1442682483}
+  - component: {fileID: 1442682484}
   m_Layer: 5
   m_Name: PrismaPanel
   m_TagString: Untagged
@@ -5567,6 +5608,23 @@ RectTransform:
   m_AnchoredPosition: {x: -250, y: 150}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1442682484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442682482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76907855313642068ac8d93f87ffbc90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  radiusSlider: {fileID: 1229918703}
+  heightSlider: {fileID: 1362842242}
 --- !u!1 &1509074667
 GameObject:
   m_ObjectHideFlags: 0
@@ -5882,7 +5940,7 @@ GameObject:
   - component: {fileID: 1568954689}
   - component: {fileID: 1568954690}
   m_Layer: 5
-  m_Name: XSizeSlider
+  m_Name: SmoothnessSizeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5955,7 +6013,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 981814128}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 50
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -5972,7 +6030,7 @@ GameObject:
   - component: {fileID: 1604601036}
   - component: {fileID: 1604601037}
   m_Layer: 5
-  m_Name: ZSizeSlider
+  m_Name: HeightSizeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6045,7 +6103,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1604711987}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -7015,7 +7073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedb68ee03cf4ffa82a54b607622f06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
   button: {fileID: 1742978153}
 --- !u!114 &1742978153
 MonoBehaviour:

@@ -3,9 +3,16 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class Capsule : Sphere
 {
-    [Space] [SerializeField] private float height;
+    [field:SerializeField] public float Height { get; private set; }
 
-
+    public void ChangeForm(int smoothness,float radius,float height)
+    {
+        Vertices.Clear();
+        Smoothness = smoothness;
+        Radius = radius;
+        Height = height;
+        Generate();
+    }
     private void Start()
     {
         Generate();
@@ -13,7 +20,7 @@ public class Capsule : Sphere
     
     protected override Vector3[] CreateVertices()
     {
-        var heightHalf = height * 0.5f;
+        var heightHalf = Height * 0.5f;
         for (int width = 1; width <= Smoothness * 0.5f; width++)
         {
             float theta = width * Mathf.PI / (Smoothness);

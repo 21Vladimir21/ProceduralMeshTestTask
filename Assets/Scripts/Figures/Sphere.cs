@@ -5,13 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class Sphere : FigureBase
 {
-    [field: SerializeField] public int Smoothness { get; private set; } = 10;
-    [field: Space] [field: SerializeField] public float Radius { get; private set; } = 1f;
+    [field: Space] [field: SerializeField] public int Smoothness { get; protected set; } = 10;
+    [field: SerializeField] public float Radius { get; protected set; } = 1f;
 
     protected readonly List<Vector3> Vertices = new();
 
-    public void ChangeForm(int smoothness,float radius)
+    public void ChangeForm(int smoothness, float radius)
     {
+        Vertices.Clear();
         Smoothness = smoothness;
         Radius = radius;
         Generate();
@@ -135,6 +136,4 @@ public class Sphere : FigureBase
 
         return triangles;
     }
-    
-    
 }

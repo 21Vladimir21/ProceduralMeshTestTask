@@ -103,8 +103,8 @@ MonoBehaviour:
   meshRenderer: {fileID: 7858830900065592450}
   meshCollider: {fileID: 8154112503492147758}
   material: {fileID: 2100000, guid: ccea2b05db240424e9f6439ff813cf33, type: 2}
-  height: 2.5
-  radius: 0.54
+  <Height>k__BackingField: 1
+  <Radius>k__BackingField: 1
 --- !u!64 &8154112503492147758
 MeshCollider:
   m_ObjectHideFlags: 0

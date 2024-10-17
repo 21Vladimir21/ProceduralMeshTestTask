@@ -5,35 +5,41 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class Prisma : FigureBase
 {
-    
-    [Space] [SerializeField] private float height;
-    [SerializeField] private float radius;
+    [field: Space] [field: SerializeField] public float Height { get; private set; }
+    [field: SerializeField] public float Radius { get; private set; }
     private readonly List<Vector3> _vertices = new();
 
     private const int BaseLayerCount = 2;
     private const int EdgeCount = 6;
 
+    public void ChangeForm(float radius, float height)
+    {
+        _vertices.Clear();
+        Radius = radius;
+        Height = height;
+        Generate();
+    }
+
     private void Start()
     {
-    
-
-       Generate();
+        Generate();
     }
 
     protected override Vector3[] CreateVertices()
     {
-        var heightHalf = height * 0.5f;
+        var heightHalf = Height * 0.5f;
         for (int i = 0; i < BaseLayerCount; i++)
         {
             for (int lon = 0; lon < EdgeCount; lon++)
             {
                 float phi = lon * 2 * Mathf.PI / EdgeCount;
-                float x = radius * Mathf.Cos(phi);
-                float z = radius * Mathf.Sin(phi);
+                float x = Radius * Mathf.Cos(phi);
+                float z = Radius * Mathf.Sin(phi);
 
                 _vertices.Add(new Vector3(x, i > 0 ? -heightHalf : heightHalf, z));
             }
         }
+
         return _vertices.ToArray();
     }
 
@@ -60,7 +66,7 @@ public class Prisma : FigureBase
             triangles.Add(subsequentForNextVertex);
         }
 
-        for (int i = EdgeCount; i < _vertices.Count -2; i++)
+        for (int i = EdgeCount; i < _vertices.Count - 2; i++)
         {
             var currentVertex = EdgeCount;
             var nextVertex = i + 1;
@@ -105,6 +111,4 @@ public class Prisma : FigureBase
 
         return triangles;
     }
-
-
 }

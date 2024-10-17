@@ -37,28 +37,31 @@ namespace FigureSpawner
                     _selectedFigure = selectedFigure;
                     if (_selectedFigure is Cube cube)
                     {
-                        _mainView.ChangeCubeFormPanel.OpenPanel(cube.Size);
-                        _mainView.ChangeCubeFormPanel.onChangedSize.AddListener(cube.ChangeSize);
+                        _mainView.ChangeCubePanel.OpenPanel(cube.Size);
+                        _mainView.ChangeCubePanel.onChangedSize.AddListener(cube.ChangeSize);
                     }
+
                     if (_selectedFigure is Sphere sphere)
                     {
-                        _mainView.ChangeSpherePanel.OpenPanel(sphere.Smoothness,sphere.Radius);
+                        _mainView.ChangeSpherePanel.OpenPanel(sphere.Smoothness, sphere.Radius);
                         _mainView.ChangeSpherePanel.onChanged.AddListener(sphere.ChangeForm);
                     }
 
                     if (_selectedFigure is Capsule capsule)
                     {
-                        
+                        _mainView.ChangeCapsulePanel.OpenPanel(capsule.Smoothness, capsule.Radius, capsule.Height);
+                        _mainView.ChangeCapsulePanel.onChanged.AddListener(capsule.ChangeForm);
                     }
+
                     if (_selectedFigure is Prisma prisma)
                     {
-                        
+                        _mainView.ChangePrismaPanel.OpenPanel(prisma.Radius, prisma.Height);
+                        _mainView.ChangePrismaPanel.onChanged.AddListener(prisma.ChangeForm);
                     }
                 }
                 else
                 {
-                    if (_selectedFigure is Cube) _mainView.ChangeCubeFormPanel.HidePanel();
-
+                    _mainView.HideAllPanels();
                     var position = GetPosition();
                     SpawnFigure(position);
                     _selectedFigure = null;
@@ -69,6 +72,7 @@ namespace FigureSpawner
             {
                 if (_selectedFigure != null)
                 {
+                    _mainView.HideAllPanels();
                     Destroy(_selectedFigure.gameObject);
                     _selectedFigure = null;
                 }

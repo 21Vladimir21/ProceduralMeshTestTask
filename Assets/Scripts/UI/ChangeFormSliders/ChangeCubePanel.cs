@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace UI.ChangeFormSliders
 {
-    public class ChangeCubeFormPanel : MonoBehaviour
+    public class ChangeCubePanel : MonoBehaviour
     {
         [HideInInspector] public UnityEvent<Vector3> onChangedSize;
 

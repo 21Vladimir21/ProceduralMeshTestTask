@@ -1,34 +1,35 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace UI.ChangeFormSliders
 {
-    public class ChangeSpherePanel : MonoBehaviour
+    public class ChangePrismaPanel : MonoBehaviour
     {
-        [HideInInspector] public UnityEvent<int, float> onChanged;
-        [SerializeField] private Slider smoothnessSlider;
+        [HideInInspector] public UnityEvent<float, float> onChanged;
         [SerializeField] private Slider radiusSlider;
+        [SerializeField] private Slider heightSlider;
 
         private void Start()
         {
-            smoothnessSlider.onValueChanged.AddListener(_ => ValuesChanged());
             radiusSlider.onValueChanged.AddListener(_ => ValuesChanged());
+            heightSlider.onValueChanged.AddListener(_ => ValuesChanged());
         }
 
 
-        public void OpenPanel(int smoothness, float radius)
+        public void OpenPanel(float radius, float height)
         {
             gameObject.SetActive(true);
-            smoothnessSlider.value = smoothness;
+
             radiusSlider.value = radius;
+            heightSlider.value = height;
         }
 
         public void HidePanel()
         {
             gameObject.SetActive(false);
         }
-        private void ValuesChanged() => onChanged.Invoke((int)smoothnessSlider.value, radiusSlider.value);
+
+        private void ValuesChanged() => onChanged.Invoke(heightSlider.value, radiusSlider.value);
     }
 }
