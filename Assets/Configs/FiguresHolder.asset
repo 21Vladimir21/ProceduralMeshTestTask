@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf2e131a7a940abbb6809db8e26023d, type: 3}
+  m_Name: FiguresHolder
+  m_EditorClassIdentifier: 
+  <Figures>k__BackingField:
+  - {fileID: 563696054511283655, guid: 27f586bd02db2c944a6af31431e46a51, type: 3}
+  - {fileID: 6246879677618708717, guid: e99a15effae7f55458c9a0e205512f7a, type: 3}
+  - {fileID: 5062025381609582534, guid: 42cf9e2386f1f2f4cbaf60de5ef1b948, type: 3}
+  - {fileID: 8594408926784776957, guid: 9b2df15b86a41f549af8b589dc0b16bd, type: 3}
