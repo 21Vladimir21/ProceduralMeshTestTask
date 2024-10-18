@@ -1754,7 +1754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -250, y: 150}
+  m_AnchoredPosition: {x: -296.87158, y: 150}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &576357130
@@ -1769,6 +1769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a480a1fecdd49f9b0ec4a0d8a9a6438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Type>k__BackingField: 0
   onChangedSize:
     m_PersistentCalls:
       m_Calls: []
@@ -2247,7 +2248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -250, y: 150}
+  m_AnchoredPosition: {x: -296.87158, y: 150}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &720313733
@@ -2262,7 +2263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651f61fc76074d96a02a5dc5c90c3cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onChanged:
+  <Type>k__BackingField: 2
+  onChangedSize:
     m_PersistentCalls:
       m_Calls: []
   smoothnessSlider: {fileID: 1568954690}
@@ -3550,7 +3552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 821.3619, y: 160}
+  m_AnchoredPosition: {x: 1187.2208, y: 160}
   m_SizeDelta: {x: 320, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969377456
@@ -3807,8 +3809,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainView: {fileID: 1439040789}
-  figuresHolder: {fileID: 11400000, guid: 75eecad4cfbad89498ccc89ae4fcaa26, type: 2}
-  figuresHandler: {fileID: 2145616669}
+  shapesHolder: {fileID: 11400000, guid: 75eecad4cfbad89498ccc89ae4fcaa26, type: 2}
+  shapesHandler: {fileID: 2145616669}
 --- !u!4 &1040610284
 Transform:
   m_ObjectHideFlags: 0
@@ -5260,7 +5262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -250, y: 150}
+  m_AnchoredPosition: {x: -296.87158, y: 150}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1349764760
@@ -5275,7 +5277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4fc281cf8e4644ba02c2f4eaaba458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onChanged:
+  <Type>k__BackingField: 1
+  onChangedSize:
     m_PersistentCalls:
       m_Calls: []
   smoothnessSlider: {fileID: 682823508}
@@ -5571,6 +5574,7 @@ GameObject:
   - component: {fileID: 1388848273}
   - component: {fileID: 1388848272}
   - component: {fileID: 1388848271}
+  - component: {fileID: 1388848275}
   m_Layer: 5
   m_Name: ColorsPanel
   m_TagString: Untagged
@@ -5598,7 +5602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 488.5619, y: 160}
+  m_AnchoredPosition: {x: 849.6469, y: 160}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1388848271
@@ -5677,6 +5681,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388848269}
   m_CullTransparentMesh: 1
+--- !u!114 &1388848275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388848269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5becf2d6e5d44c799291e9a61e4cc00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onColorSelection:
+    m_PersistentCalls:
+      m_Calls: []
+  colorButtons:
+  - {fileID: 1160718710}
+  - {fileID: 2028003}
+  - {fileID: 1861590863}
+  - {fileID: 2048769451}
 --- !u!1 &1439040787
 GameObject:
   m_ObjectHideFlags: 0
@@ -5732,12 +5756,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95cd4aa88e4040208a5652e86ede8eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectFigurePanel: {fileID: 2002492190}
-  <ChangeCubePanel>k__BackingField: {fileID: 576357130}
-  <ChangeSpherePanel>k__BackingField: {fileID: 1349764760}
-  <ChangeCapsulePanel>k__BackingField: {fileID: 720313733}
-  <ChangePrismaPanel>k__BackingField: {fileID: 1442682484}
+  shapesSelectionPanel: {fileID: 2002492190}
+  <ColorSelectionPanel>k__BackingField: {fileID: 1388848275}
   <DeleteFigureButton>k__BackingField: {fileID: 931134344}
+  <SettingsPanels>k__BackingField:
+  - {fileID: 576357130}
+  - {fileID: 1349764760}
+  - {fileID: 720313733}
+  - {fileID: 1442682484}
 --- !u!1 &1440616391
 GameObject:
   m_ObjectHideFlags: 0
@@ -5906,7 +5932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -250, y: 150}
+  m_AnchoredPosition: {x: -296.87158, y: 150}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442682484
@@ -5921,11 +5947,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76907855313642068ac8d93f87ffbc90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Type>k__BackingField: 3
+  onChangedSize:
+    m_PersistentCalls:
+      m_Calls: []
   onChanged:
     m_PersistentCalls:
       m_Calls: []
-  radiusSlider: {fileID: 1229918703}
-  heightSlider: {fileID: 1362842242}
+  radiusSlider: {fileID: 1362842242}
+  heightSlider: {fileID: 1229918703}
 --- !u!1 &1509074667
 GameObject:
   m_ObjectHideFlags: 0
@@ -8049,8 +8079,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 160, y: 160}
-  m_SizeDelta: {x: 320, y: 320}
+  m_AnchoredPosition: {x: 352.27972, y: 160}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2002492190
 MonoBehaviour:
@@ -8076,7 +8106,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002492188}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
@@ -8103,7 +8133,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 120, y: 120}
+  m_CellSize: {x: 281.9, y: 120}
   m_Spacing: {x: 20, y: 20}
   m_Constraint: 1
   m_ConstraintCount: 2
