@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace UI.ChangeFormSliders
+namespace UI.FiguresSettings
 {
-    public class ChangePrismaPanel : MonoBehaviour
+    public class PrismaSettingsPanel : MonoBehaviour
     {
         [HideInInspector] public UnityEvent<float, float> onChanged;
         [SerializeField] private Slider radiusSlider;
@@ -19,8 +19,8 @@ namespace UI.ChangeFormSliders
 
         public void OpenPanel(float radius, float height)
         {
+            onChanged.RemoveAllListeners();
             gameObject.SetActive(true);
-
             radiusSlider.value = radius;
             heightSlider.value = height;
         }

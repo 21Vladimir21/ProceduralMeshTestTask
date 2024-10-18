@@ -12,10 +12,13 @@ namespace Figures
         [SerializeField] protected Material material;
 
 
-        public virtual void Generate()
+        protected void Generate()
         {
-            var cloneMaterial = new Material(material);
-            meshRenderer.material = cloneMaterial;
+            if (meshRenderer.material == null)
+            {
+                var cloneMaterial = new Material(material);
+                meshRenderer.material = cloneMaterial;
+            }
 
             var mesh = new Mesh();
             meshFilter.mesh.Clear();
@@ -25,6 +28,8 @@ namespace Figures
             meshFilter.mesh = mesh;
             meshCollider.sharedMesh = mesh;
         }
+
+        public void ChangeColor(Color color) => meshRenderer.material.color = color;
 
         protected abstract Vector3[] CreateVertices();
         protected abstract int[] CreateTriangles();

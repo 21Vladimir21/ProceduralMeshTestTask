@@ -2,11 +2,11 @@ using Figures;
 using GameData;
 using UnityEngine;
 
-namespace UI
+namespace UI.FigureSelection
 {
-    public class SelectFigurePanel : MonoBehaviour
+    public class FigureSelectionPanel : MonoBehaviour
     {
-        [SerializeField] private SelectFigureButton[] buttons;
+        [SerializeField] private FigureSelectionButton[] buttons;
         private FiguresType _currentFigure;
         private GameDatas _gameDatas;
 

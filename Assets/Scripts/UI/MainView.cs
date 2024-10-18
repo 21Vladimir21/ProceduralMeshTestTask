@@ -1,31 +1,35 @@
 using GameData;
-using UI.ChangeFormSliders;
+using UI.ColorSelection;
+using UI.FigureSelection;
+using UI.FiguresSettings;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
 {
     public class MainView : MonoBehaviour
     {
-        [SerializeField] private SelectFigurePanel selectFigurePanel;
-        [field: SerializeField] public ChangeCubePanel ChangeCubePanel { get; private set; }
-        [field: SerializeField] public ChangeSpherePanel ChangeSpherePanel { get; private set; }
-        [field: SerializeField] public ChangeCapsulePanel ChangeCapsulePanel { get; private set; }
-        [field: SerializeField] public ChangePrismaPanel ChangePrismaPanel { get; private set; }
+        [FormerlySerializedAs("selectFigurePanel")] [SerializeField] private FigureSelectionPanel figureSelectionPanel;
+        [field: SerializeField] public CubeSettingsPanel CubeSettingsPanel { get; private set; }
+        [field: SerializeField] public SphereSettingsPanel SphereSettingsPanel { get; private set; }
+        [field: SerializeField] public CapsuleSettingsPanel CapsuleSettingsPanel { get; private set; }
+        [field: SerializeField] public PrismaSettingsPanel PrismaSettingsPanel { get; private set; }
+        [field: SerializeField] public ColorSelectionPanel ColorSelectionPanel { get; private set; }
         [field: SerializeField] public Button DeleteFigureButton { get; private set; }
 
 
         public void Init(GameDatas gameDatas)
         {
-            selectFigurePanel.Init(gameDatas);
+            figureSelectionPanel.Init(gameDatas);
         }
 
         public void HideAllPanels()
         {
-            ChangeCubePanel.HidePanel();
-            ChangeSpherePanel.HidePanel();
-            ChangeCapsulePanel.HidePanel();
-            ChangePrismaPanel.HidePanel();
+            CubeSettingsPanel.HidePanel();
+            SphereSettingsPanel.HidePanel();
+            CapsuleSettingsPanel.HidePanel();
+            PrismaSettingsPanel.HidePanel();
         }
     }
 }

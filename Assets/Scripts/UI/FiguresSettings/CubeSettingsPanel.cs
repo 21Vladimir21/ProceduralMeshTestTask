@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace UI.ChangeFormSliders
+namespace UI.FiguresSettings
 {
-    public class ChangeCubePanel : MonoBehaviour
+    public class CubeSettingsPanel : MonoBehaviour
     {
         [HideInInspector] public UnityEvent<Vector3> onChangedSize;
 

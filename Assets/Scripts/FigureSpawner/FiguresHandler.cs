@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 namespace FigureSpawner
 {
     public class FiguresHandler : MonoBehaviour
-
     {
         private FigureBase _selectedFigure;
         private Camera _camera;
@@ -36,28 +35,30 @@ namespace FigureSpawner
                 if (hit.collider != null && hit.collider.TryGetComponent(out FigureBase selectedFigure))
                 {
                     _selectedFigure = selectedFigure;
+                    _mainView.ColorSelectionPanel.onColorSelection.RemoveAllListeners();
+                    _mainView.ColorSelectionPanel.onColorSelection.AddListener(_selectedFigure.ChangeColor);
                     if (_selectedFigure is Cube cube)
                     {
-                        _mainView.ChangeCubePanel.OpenPanel(cube.Size);
-                        _mainView.ChangeCubePanel.onChangedSize.AddListener(cube.ChangeSize);
+                        _mainView.CubeSettingsPanel.OpenPanel(cube.Size);
+                        _mainView.CubeSettingsPanel.onChangedSize.AddListener(cube.ChangeSize);
                     }
 
                     if (_selectedFigure is Sphere sphere)
                     {
-                        _mainView.ChangeSpherePanel.OpenPanel(sphere.Smoothness, sphere.Radius);
-                        _mainView.ChangeSpherePanel.onChanged.AddListener(sphere.ChangeForm);
+                        _mainView.SphereSettingsPanel.OpenPanel(sphere.Smoothness, sphere.Radius);
+                        _mainView.SphereSettingsPanel.onChanged.AddListener(sphere.ChangeForm);
                     }
 
                     if (_selectedFigure is Capsule capsule)
                     {
-                        _mainView.ChangeCapsulePanel.OpenPanel(capsule.Smoothness, capsule.Radius, capsule.Height);
-                        _mainView.ChangeCapsulePanel.onChanged.AddListener(capsule.ChangeForm);
+                        _mainView.CapsuleSettingsPanel.OpenPanel(capsule.Smoothness, capsule.Radius, capsule.Height);
+                        _mainView.CapsuleSettingsPanel.onChanged.AddListener(capsule.ChangeForm);
                     }
 
                     if (_selectedFigure is Prisma prisma)
                     {
-                        _mainView.ChangePrismaPanel.OpenPanel(prisma.Radius, prisma.Height);
-                        _mainView.ChangePrismaPanel.onChanged.AddListener(prisma.ChangeForm);
+                        _mainView.PrismaSettingsPanel.OpenPanel(prisma.Radius, prisma.Height);
+                        _mainView.PrismaSettingsPanel.onChanged.AddListener(prisma.ChangeForm);
                     }
                 }
                 else

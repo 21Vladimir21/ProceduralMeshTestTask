@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace UI.ChangeFormSliders
+namespace UI.FiguresSettings
 {
-    public class ChangeCapsulePanel : MonoBehaviour
+    public class CapsuleSettingsPanel : MonoBehaviour
     {
         [HideInInspector] public UnityEvent<int, float,float> onChanged;
         [SerializeField] private Slider smoothnessSlider;
@@ -21,6 +21,7 @@ namespace UI.ChangeFormSliders
 
         public void OpenPanel(int smoothness, float radius,float height)
         {
+            onChanged.RemoveAllListeners();
             gameObject.SetActive(true);
             smoothnessSlider.value = smoothness;
             radiusSlider.value = radius;

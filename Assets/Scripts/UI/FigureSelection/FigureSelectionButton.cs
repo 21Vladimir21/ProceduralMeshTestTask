@@ -3,10 +3,10 @@ using Figures;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.FigureSelection
 {
     [RequireComponent(typeof(Button))]
-    public class SelectFigureButton : MonoBehaviour
+    public class FigureSelectionButton : MonoBehaviour
     {
         public Action<FiguresType> OnSelectFigure;
         [SerializeField] private FiguresType type;
