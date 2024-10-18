@@ -25,6 +25,7 @@ namespace Shapes
         }
 
         private void Start() => Generate();
+
         public override void ChangeSize(List<IParameter> parameters)
         {
             Vertices.Clear();
@@ -37,21 +38,23 @@ namespace Shapes
 
         protected override Vector3[] CreateVertices()
         {
+            // Создание вершин вехней половины 
             var heightHalf = Height * 0.5f;
             for (int width = 1; width <= Smoothness * 0.5f; width++)
             {
-                float theta = width * Mathf.PI / (Smoothness);
+                float theta = width * Mathf.PI / Smoothness; // Определение угла вершины по высоте 
                 for (int lon = 0; lon < Smoothness; lon++)
                 {
-                    float phi = lon * 2 * Mathf.PI / Smoothness;
+                    float phi = lon * 2 * Mathf.PI / Smoothness; // Определение угла вершины по широте
                     float x = Radius * Mathf.Sin(theta) * Mathf.Cos(phi);
-                    float y = Radius * Mathf.Cos(theta);
+                    float y = Radius * Mathf.Cos(theta); // Опредение высоты точки с учетом радиуса
                     float z = Radius * Mathf.Sin(theta) * Mathf.Sin(phi);
 
                     Vertices.Add(new Vector3(x, y + heightHalf, z));
                 }
             }
 
+            // Создание вершин нижней половины 
             var startLongIndex = (int)(Smoothness * 0.5f);
             for (int width = startLongIndex; width < Smoothness; width++)
             {
@@ -72,5 +75,6 @@ namespace Shapes
 
             return Vertices.ToArray();
         }
+        // Просчет треугольников происходит так же как и сфере, поэтому капсула наследуется от неё
     }
 }

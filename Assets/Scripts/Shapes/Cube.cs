@@ -10,7 +10,6 @@ namespace Shapes
     public class Cube : ShapeBase
     {
         [field: SerializeField] public Vector3 Size { get; private set; } = new Vector3(1, 1, 1);
-    
 
         public override List<IParameter> Parameters
         {
@@ -25,6 +24,7 @@ namespace Shapes
                 return list;
             }
         }
+
         private void Start() => Generate();
 
         public override void ChangeSize(List<IParameter> parameters)
@@ -35,8 +35,6 @@ namespace Shapes
             Size = new Vector3(x, y, z);
             base.ChangeSize(parameters);
         }
-
-
 
         protected override int[] CreateTriangles()
         {

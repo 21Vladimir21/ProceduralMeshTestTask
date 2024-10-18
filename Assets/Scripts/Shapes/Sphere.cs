@@ -41,12 +41,14 @@ namespace Shapes
         {
             for (int width = 1; width <= Smoothness; width++)
             {
-                float theta = width * Mathf.PI / (Smoothness + 1);
+                float theta = width * Mathf.PI / (Smoothness + 1); // Определение угла вершины по высоте 
+
                 for (int lon = 0; lon < Smoothness; lon++)
                 {
-                    float phi = lon * 2 * Mathf.PI / Smoothness;
+                    float phi = lon * 2 * Mathf.PI / Smoothness; // Определение угла вершины по широте
+                    
                     float x = Radius * Mathf.Sin(theta) * Mathf.Cos(phi);
-                    float y = Radius * Mathf.Cos(theta);
+                    float y = Radius * Mathf.Cos(theta); 
                     float z = Radius * Mathf.Sin(theta) * Mathf.Sin(phi);
 
                     Vertices.Add(new Vector3(x, y, z));

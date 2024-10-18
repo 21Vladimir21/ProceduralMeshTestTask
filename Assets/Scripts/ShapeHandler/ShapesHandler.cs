@@ -35,6 +35,7 @@ namespace ShapeHandler
                 {
                     _mainView.HideLastPanel();
                     _selectedShape = selectedFigure;
+
                     _mainView.ColorSelectionPanel.onColorSelection.RemoveAllListeners();
                     _mainView.ColorSelectionPanel.onColorSelection.AddListener(_selectedShape.ChangeColor);
 

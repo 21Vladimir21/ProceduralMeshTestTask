@@ -44,6 +44,7 @@ namespace Shapes
 
         protected override Vector3[] CreateVertices()
         {
+            // Создание вершин верхней и нижней части сферы
             var heightHalf = Height * 0.5f;
             for (int i = 0; i < BaseLayerCount; i++)
             {
@@ -63,7 +64,6 @@ namespace Shapes
         protected override int[] CreateTriangles()
         {
             var triangles = new List<int>();
-
             triangles.AddRange(FillTriangles());
             triangles.AddRange(FillSideTriangles());
             return triangles.ToArray();
@@ -71,6 +71,7 @@ namespace Shapes
 
         private List<int> FillTriangles()
         {
+            // создание треугольников верхней части призмы
             List<int> triangles = new();
             for (int i = EdgeCount - 1; i >= 2; i--)
             {
@@ -83,6 +84,7 @@ namespace Shapes
                 triangles.Add(subsequentForNextVertex);
             }
 
+            // создание треугольников нижней части призмы
             for (int i = EdgeCount; i < _vertices.Count - 2; i++)
             {
                 var currentVertex = EdgeCount;
@@ -106,7 +108,7 @@ namespace Shapes
                 var currentVertex = i;
                 var nextVertex = i + 1;
                 var nextRowVertex = i + EdgeCount;
-                if ((i + 1) % EdgeCount == 0 && i != 0)
+                if ((i + 1) % EdgeCount == 0 && i != 0) // Если кончается ряд
                 {
                     triangles.Add(currentVertex);
                     triangles.Add(currentVertex - EdgeCount + 1);
