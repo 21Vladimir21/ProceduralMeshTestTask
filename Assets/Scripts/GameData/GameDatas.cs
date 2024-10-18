@@ -1,10 +1,11 @@
+using Enums;
 using Figures;
 
 namespace GameData
 {
     public class GameDatas
     {
-        public FiguresType CurrentFigure { get; set; }
+        public EShapesType CurrentEShape { get; set; }
 
         public GameDatas()
         {

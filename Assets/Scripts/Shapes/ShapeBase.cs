@@ -1,16 +1,19 @@
+using System.Collections.Generic;
+using Enums;
+using ShapeParameters;
 using UnityEngine;
 
 namespace Figures
 {
-    public abstract class FigureBase : MonoBehaviour
+    public abstract class ShapeBase : MonoBehaviour
     {
-        [field: SerializeField] public FiguresType Type { get; private set; }
+        [field: SerializeField] public EShapesType Type { get; private set; }
         [SerializeField] protected MeshFilter meshFilter;
         [SerializeField] protected MeshRenderer meshRenderer;
         [SerializeField] private MeshCollider meshCollider;
 
         [SerializeField] protected Material material;
-
+        public virtual List<IParameter> Parameters { get; set; }
 
         protected void Generate()
         {
@@ -30,9 +33,19 @@ namespace Figures
         }
 
         public void ChangeColor(Color color) => meshRenderer.material.color = color;
+        public virtual void ChangeSize(List<IParameter> parameters) => Generate();
 
         protected abstract Vector3[] CreateVertices();
         protected abstract int[] CreateTriangles();
+
+        protected T GetValue<T>(EParameters type, List<IParameter> parameters) where T : struct
+        {
+            foreach (var parameter in parameters)
+                if (parameter.Type == type)
+                    if (parameter is ShapeParameter<T> value)
+                        return value.Value;
+            return default;
+        }
 
 #if UNITY_EDITOR
 

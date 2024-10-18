@@ -1,7 +1,8 @@
+using Enums;
 using GameData;
 using UI.ColorSelection;
 using UI.FigureSelection;
-using UI.FiguresSettings;
+using UI.ShapesSettings;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -10,26 +11,31 @@ namespace UI
 {
     public class MainView : MonoBehaviour
     {
-        [FormerlySerializedAs("selectFigurePanel")] [SerializeField] private FigureSelectionPanel figureSelectionPanel;
-        [field: SerializeField] public CubeSettingsPanel CubeSettingsPanel { get; private set; }
-        [field: SerializeField] public SphereSettingsPanel SphereSettingsPanel { get; private set; }
-        [field: SerializeField] public CapsuleSettingsPanel CapsuleSettingsPanel { get; private set; }
-        [field: SerializeField] public PrismaSettingsPanel PrismaSettingsPanel { get; private set; }
+        [SerializeField] private ShapesSelectionPanel shapesSelectionPanel;
         [field: SerializeField] public ColorSelectionPanel ColorSelectionPanel { get; private set; }
         [field: SerializeField] public Button DeleteFigureButton { get; private set; }
+        [field: SerializeField] public SettingsPanel[] SettingsPanels { get; private set; }
 
+        private SettingsPanel _lastOpenedPanel;
 
-        public void Init(GameDatas gameDatas)
+        public void Init(GameDatas gameDatas) => shapesSelectionPanel.Init(gameDatas);
+
+        public SettingsPanel GetPanelByType(EShapesType type)
         {
-            figureSelectionPanel.Init(gameDatas);
+            foreach (var panel in SettingsPanels)
+                if (panel.Type == type)
+                {
+                    _lastOpenedPanel = panel;
+                    return panel;
+                }
+
+            return null;
         }
 
-        public void HideAllPanels()
+        public void HideLastPanel()
         {
-            CubeSettingsPanel.HidePanel();
-            SphereSettingsPanel.HidePanel();
-            CapsuleSettingsPanel.HidePanel();
-            PrismaSettingsPanel.HidePanel();
+            if (_lastOpenedPanel == null) return;
+            _lastOpenedPanel.HidePanel();
         }
     }
 }

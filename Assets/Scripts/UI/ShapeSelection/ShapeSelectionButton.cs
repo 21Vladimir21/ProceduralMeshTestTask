@@ -1,15 +1,16 @@
 using System;
+using Enums;
 using Figures;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.FigureSelection
+namespace UI.ShapeSelection
 {
     [RequireComponent(typeof(Button))]
-    public class FigureSelectionButton : MonoBehaviour
+    public class ShapeSelectionButton : MonoBehaviour
     {
-        public Action<FiguresType> OnSelectFigure;
-        [SerializeField] private FiguresType type;
+        public Action<EShapesType> OnSelectFigure;
+        [SerializeField] private EShapesType type;
         [SerializeField] private Button button;
 
 

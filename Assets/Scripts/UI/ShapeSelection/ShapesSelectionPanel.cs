@@ -1,13 +1,15 @@
+using Enums;
 using Figures;
 using GameData;
+using UI.ShapeSelection;
 using UnityEngine;
 
 namespace UI.FigureSelection
 {
-    public class FigureSelectionPanel : MonoBehaviour
+    public class ShapesSelectionPanel : MonoBehaviour
     {
-        [SerializeField] private FigureSelectionButton[] buttons;
-        private FiguresType _currentFigure;
+        [SerializeField] private ShapeSelectionButton[] buttons;
+        private EShapesType _currentEShape;
         private GameDatas _gameDatas;
 
         public void Init(GameDatas gameDatas)
@@ -18,10 +20,10 @@ namespace UI.FigureSelection
                 button.OnSelectFigure += SelectCurrentFigure;
             }
         }
-        private void SelectCurrentFigure(FiguresType figuresType)
+        private void SelectCurrentFigure(EShapesType eShapesType)
         {
-            _currentFigure = figuresType;
-            _gameDatas.CurrentFigure = _currentFigure;
+            _currentEShape = eShapesType;
+            _gameDatas.CurrentEShape = _currentEShape;
         }
     }
 }

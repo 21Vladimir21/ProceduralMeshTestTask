@@ -1,13 +1,15 @@
 using FigureSpawner;
 using GameData;
+using ShapeHandler;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EntryPoint : MonoBehaviour
 {
     [SerializeField] private MainView mainView;
-    [SerializeField] private FiguresHolder figuresHolder;
-    [SerializeField] private FiguresHandler figuresHandler;
+    [FormerlySerializedAs("figuresHolder")] [SerializeField] private ShapesHolder shapesHolder;
+    [FormerlySerializedAs("figuresHandler")] [SerializeField] private ShapesHandler shapesHandler;
 
 
     private GameDatas _gameDatas;
@@ -16,6 +18,6 @@ public class EntryPoint : MonoBehaviour
     {
         _gameDatas = new GameDatas();
         mainView.Init(_gameDatas);
-        figuresHandler.Init(_gameDatas, figuresHolder.Figures,mainView);
+        shapesHandler.Init(_gameDatas, shapesHolder.Figures,mainView);
     }
 }

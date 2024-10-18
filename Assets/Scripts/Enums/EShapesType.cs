@@ -1,6 +1,6 @@
-namespace Figures
+namespace Enums
 {
-    public enum FiguresType
+    public enum EShapesType
     {
         Cube,
         Sphere,
